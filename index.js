@@ -10,9 +10,10 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(express.json());
 app.use(cors());
-
 app.use(logger);
 app.use(cookieParser())
+
+app.use("/user", userRouter)
 
 
 app.get("/", (req,res)=>{

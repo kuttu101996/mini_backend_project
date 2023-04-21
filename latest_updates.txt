@@ -11,7 +11,6 @@ Yet to work ->
     7. SQL integration
     8. SQL Aggregation
     9. Searching system
-    10. Socket.io
     11. Mail Verification
     12. Google Oauth
     13. Github Oauth
@@ -19,6 +18,10 @@ Yet to work ->
     15. Implement some part with Typescript
     16. Implement LLD
 
+
+
+On Progress ->
+    10. Socket.io
 
 
 

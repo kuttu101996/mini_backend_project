@@ -40,9 +40,9 @@ userRouter.post("/login", async(req,res)=>{
                     const refreshToken = jwt.sign({userID: user[0]._id}, process.env.refreshSecret, {
                         expiresIn: 120 // 86400
                     })
-                    // res.cookie("userID", user[0]._id)
-                    // res.cookie("token", token)
-                    // res.cookie("refreshToken", refreshToken)
+                    res.cookie("userID", user[0]._id)
+                    res.cookie("token", token)
+                    res.cookie("refreshToken", refreshToken)
                     res.status(200).send({message: "Login Success", token, refreshToken})
                 }
                 else {
@@ -91,7 +91,7 @@ userRouter.post("/register", async(req,res)=>{
 
 userRouter.get("/refreshToken", async(req,res)=>{
     try{
-        // const refreshToken = req.cookies.refreshToken;
+        const refreshToken = req.cookies.refreshToken;
         if (refreshToken){
             jwt.verify(refreshToken, process.env.refreshSecret, async(err, decoded)=>{
                 if (err){
@@ -102,7 +102,7 @@ userRouter.get("/refreshToken", async(req,res)=>{
                     const token = jwt.sign({userID: decoded.userID}, process.env.secretKey, {
                         expiresIn: 60 // 43200
                     })
-                    // res.cookie("token", token)
+                    res.cookie("token", token)
                     res.status(200).send({message: "Token Generated from RefreshToken", token})
                 }
             })
@@ -118,9 +118,9 @@ userRouter.get("/refreshToken", async(req,res)=>{
 })
 
 userRouter.get("/logout", async(req,res)=>{
-    // const userID = req.cookies.userID
-    // const token = req.cookies.token;
-    // const refreshToken = req.cookies.refreshToken;
+    const userID = req.cookies.userID
+    const token = req.cookies.token;
+    const refreshToken = req.cookies.refreshToken;
     await client.set(`${JSON.stringify(userID)}`, `${JSON.stringify(token)} ${JSON.stringify(refreshToken)}`,{
         EX: 86400
     })

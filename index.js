@@ -5,13 +5,13 @@ const cors = require("cors")
 const {connection} = require("./config/db");
 const {userRouter, client} = require("./routes/user.route")
 const {logger} = require("./config/logger");
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(logger);
-// app.use(cookieParser())
+app.use(cookieParser())
 
 app.use("/user", userRouter)
 

@@ -1,0 +1,29 @@
+Any More basic Functionalities anyone can think of can add in yet to work section.
+
+
+Yet to work ->
+    
+    2. Redis cache system
+    3. CI/CD
+    4. Role base Authorization
+    5. Profile Edit Route
+    6. MongoDB Aggregation
+    7. SQL integration
+    8. SQL Aggregation
+    9. Searching system
+    10. Socket.io
+    11. Mail Verification
+    12. Google Oauth
+    13. Github Oauth
+    14. Facebook Oauth
+
+
+
+
+Functionalities Done->
+    1. Logger connected to MongoDB
+    2. Strong User Model
+    3. User Route 
+    4. Register, Login & Logout
+    5. RefreshToken Route
+    6. Authentication (Using HTTP-only cookies is generally considered to be the best practice.)

@@ -16,6 +16,8 @@ Yet to work ->
     12. Google Oauth
     13. Github Oauth
     14. Facebook Oauth
+    15. Implement some part with Typescript
+    16. Implement LLD
 
 
 

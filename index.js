@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config()
 const cors = require("cors")
 
+const {httpServer} = require("./routes/messaging.route")
 const {connection} = require("./config/db");
 const {userRouter, client} = require("./routes/user.route")
 const {logger} = require("./config/logger");
@@ -21,8 +22,13 @@ app.get("/", (req,res)=>{
 })
 
 
+module.exports = app
+
 app.listen(process.env.port, async()=>{
     try{
+        httpServer.listen(1212, ()=>{
+            console.log("Chat app server at 1212")
+        })
         await connection;
         await client.connect();
         console.log("connected To DB")

@@ -21,8 +21,11 @@
     "passport-google-oauth20": "^2.0.0",
     "redis": "^4.6.5",
     "socket.io": "^4.6.1",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^4.6.3",
     "winston": "^3.8.2",
-    "winston-mongodb": "^5.1.1"
+    "winston-mongodb": "^5.1.1",
+    "yamljs": "^0.3.0"
   },
   "repository": {
     "type": "git",

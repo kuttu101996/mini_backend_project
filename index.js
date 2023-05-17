@@ -7,6 +7,7 @@ const {connection} = require("./config/db");
 const {userRouter, client} = require("./routes/user.route")
 const {logger} = require("./config/logger");
 const cookieParser = require("cookie-parser");
+const { swaggerServer, swaggerSetup } = require("./config");
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use(logger);
 app.use(cookieParser())
 
 app.use("/user", userRouter)
+app.use("/api-docs", swaggerServer, swaggerSetup)
 
 
 app.get("/", (req,res)=>{

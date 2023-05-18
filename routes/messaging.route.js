@@ -14,7 +14,7 @@ io.on("connection", (socket)=>{
         socket.emit("joined", "Hello from server")
         // socket.broadcast.emit("joined", "Hello from server")
         socket.on("disconnect", ()=>{
-            socket.broadcast.emit("left", name)
+            socket.broadcast.emit("left", "See you later ALLIGATOR")
         })
     })
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+</head>
+<body>
+    <h1 id="display"></h1>
+    <button id="startChat">Stat Chat</button>
+</body>
+<script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+<script>
+    const socket = io("http://localhost:1212/", { transports: ["websocket"] })
+
+    const startChat = document.getElementById("startChat")
+    startChat.addEventListener("click", ()=>{
+        socket.emit("join", "New client Joined");
+        socket.on("joined", (msg)=>{
+            document.getElementById("display").innerHTML = msg
+        })
+    })
+</script>
+</html>

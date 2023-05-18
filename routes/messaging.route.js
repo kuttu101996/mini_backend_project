@@ -9,9 +9,10 @@ const io = new Server(httpServer)
 
 io.on("connection", (socket)=>{
     console.log("new client Connected")
-    socket.on("join", (name)=>{
-        console.log(name)
-        socket.broadcast.emit("joined", name)
+    socket.on("join", (msg)=>{
+        console.log(msg)
+        socket.emit("joined", "Hello from server")
+        // socket.broadcast.emit("joined", "Hello from server")
         socket.on("disconnect", ()=>{
             socket.broadcast.emit("left", name)
         })
